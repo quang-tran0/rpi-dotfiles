@@ -138,6 +138,11 @@ sudo pacman -S --needed starship
 echo "==== Installing oh-my-zsh ===="
 rm -rf ~/.oh-my-zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+
+% Install ZSH Plugin
+# Install all needed plugin using oh my zsh
 echo "==== Installing plugin ===="
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -145,7 +150,6 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM
 git clone https://github.com/MichaelAquilina/zsh-auto-notify.git $ZSH_CUSTOM/plugins/auto-notify
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
 chsh -s /bin/zsh
-chezmoi apply
 
 
 % Install CachyOS Kernel

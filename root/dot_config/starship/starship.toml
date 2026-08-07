@@ -1,0 +1,243 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+scan_timeout = 30
+command_timeout = 1000
+palette = "catppuccin_frappe"
+
+format = "[╭─](overlay0) $os$shell$username$hostname$directory $git_branch$git_status$git_state$git_commit$git_metrics$line_break[╰─](overlay0) $package$nodejs$python$rust$golang$java$lua$php$docker_context$kubernetes$nix_shell$status$jobs$character"
+right_format = "$cmd_duration$memory_usage$battery$time"
+continuation_prompt = "[╰─](overlay0) "
+
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
+
+[os]
+disabled = false
+style = "bold sky"
+format = "[$symbol]($style) "
+symbols = { Arch = "", Debian = "", Fedora = "", Linux = "", Macos = "", Ubuntu = "", Windows = "" }
+
+[shell]
+disabled = false
+style = "bold overlay1"
+format = "[$indicator]($style) "
+bash_indicator = ""
+zsh_indicator = ""
+fish_indicator = "󰈺"
+powershell_indicator = "󰨊"
+unknown_indicator = ""
+
+[username]
+show_always = true
+style_user = "bold green"
+style_root = "bold red"
+format = "[$user]($style)"
+
+[hostname]
+disabled = false
+ssh_only = false
+trim_at = "."
+style = "bold teal"
+format = "[@$hostname]($style) "
+
+[directory]
+style = "bold blue"
+format = "[󰉋 $path]($style)[$read_only]($read_only_style)"
+home_symbol = "~"
+truncation_length = 4
+truncation_symbol = "…/"
+truncate_to_repo = true
+read_only = " 󰌾"
+read_only_style = "bold red"
+
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = "󰉍"
+Music = "󰝚"
+Pictures = "󰉏"
+Projects = "󰲋"
+Videos = "󰃽"
+
+[git_branch]
+symbol = " "
+style = "bold mauve"
+format = " [ $symbol$branch]($style)"
+
+[git_status]
+style = "bold yellow"
+format = " [$all_status$ahead_behind]($style)"
+conflicted = "= "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕${ahead_count}⇣${behind_count} "
+untracked = "?${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+stashed = "≡ "
+typechanged = "~${count} "
+
+[git_state]
+style = "bold peach"
+format = " [$state( $progress_current/$progress_total)]($style)"
+
+[git_commit]
+commit_hash_length = 7
+style = "dimmed lavender"
+format = " @[$hash]($style)"
+only_detached = true
+tag_disabled = true
+
+[git_metrics]
+disabled = false
+added_style = "bold green"
+deleted_style = "bold red"
+format = " ([+$added]($added_style)/[-$deleted]($deleted_style))"
+only_nonzero_diffs = true
+
+[package]
+symbol = "󰏗 "
+style = "bold peach"
+format = "[$symbol$version]($style) "
+display_private = true
+
+[nodejs]
+symbol = " "
+style = "bold green"
+format = "[$symbol$version]($style) "
+
+[python]
+symbol = " "
+style = "bold yellow"
+format = "[$symbol$version]($style) "
+
+[rust]
+symbol = " "
+style = "bold peach"
+format = "[$symbol$version]($style) "
+
+[golang]
+symbol = " "
+style = "bold sky"
+format = "[$symbol$version]($style) "
+
+[java]
+symbol = " "
+style = "bold red"
+format = "[$symbol$version]($style) "
+
+[lua]
+symbol = " "
+style = "bold blue"
+format = "[$symbol$version]($style) "
+
+[php]
+symbol = " "
+style = "bold lavender"
+format = "[$symbol$version]($style) "
+
+[docker_context]
+symbol = " "
+style = "bold sapphire"
+format = "[$symbol$context]($style) "
+
+[kubernetes]
+symbol = "󱃾 "
+style = "bold lavender"
+format = "[$symbol$context]($style) "
+
+[nix_shell]
+symbol = " "
+style = "bold sapphire"
+format = "[$symbol$state]($style) "
+
+[status]
+disabled = false
+map_symbol = true
+style = "bold red"
+symbol = "✘ "
+success_symbol = ""
+not_found_symbol = "󰍉 "
+not_executable_symbol = "󰀨 "
+sigint_symbol = "󰜺 "
+signal_symbol = "󰞀 "
+format = "[$symbol$status]($style) "
+
+[jobs]
+style = "bold sky"
+symbol = "✦ "
+number_threshold = 1
+format = "[$symbol$number]($style) "
+
+[cmd_duration]
+min_time = 750
+show_milliseconds = true
+style = "bold yellow"
+format = "[󰔛 $duration]($style) "
+
+[memory_usage]
+disabled = false
+threshold = 80
+style = "bold peach"
+symbol = "󰍛 "
+format = "[$symbol$ram]($style) "
+
+[battery]
+disabled = false
+full_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂎 "
+unknown_symbol = "󰂑 "
+empty_symbol = "󰂎 "
+format = "[$symbol$percentage]($style) "
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+[[battery.display]]
+threshold = 60
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 100
+style = "bold green"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "bold overlay1"
+format = "[󰥔 $time]($style)"
+
+[character]
+format = "$symbol "
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold green)"
