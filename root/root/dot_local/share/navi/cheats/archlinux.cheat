@@ -61,12 +61,6 @@ echo -e "${GREEN}System update completed successfully.${RESET}"
 
 
 
-% Grub Make Config
-# Grub Make Config
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-
-
-
 
 
 % Rescan Mirrors
@@ -149,37 +143,3 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 git clone https://github.com/MichaelAquilina/zsh-auto-notify.git $ZSH_CUSTOM/plugins/auto-notify
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
-chsh -s /bin/zsh
-
-
-% Install CachyOS Kernel
-# Download and setup Cachyos kernel
-cd ~
-curl -O https://mirror.cachyos.org/cachyos-repo.tar.xz
-tar xvf cachyos-repo.tar.xz && cd cachyos-repo
-
-sudo ./cachyos-repo.sh
-cd ..
-rm -rf cachyos-repo
-
-
-
-
-
-% Install Gaming Package    
-# Download gaming package from Cachyos and setup gamemode
-sudo pacman -S --needed cachyos-gaming-meta cachyos-gaming-applications
-sudo pacman -S --needed power-profiles-daemon
-sudo systemctl enable --now power-profiles-daemon
-sudo pacman -S --needed gamemode
-sudo usermod -aG gamemode ${whoami}
-systemctl --user enable --now gamemoded
-
-
-
-
-
-% Set Up Git Credential Manager
-git-credential-manager configure
-git config --global --replace-all credential.helper manager
-git config --global credential.credentialStore secretservice
