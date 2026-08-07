@@ -1,0 +1,41 @@
+
+" --- General Settings ---
+set nocompatible            " Disable compatibility with old vi quirks
+set encoding=utf-8          " Set internal character encoding to UTF-8
+set number                  " Show absolute line numbers on the left sidebar
+set history=1000            " Increase the Ex command execution history limit
+set wildmenu                " Enable visual autocomplete menu for command mode
+set whichwrap+=<,>,h,l,[,]
+set mouse=a
+
+" --- UI & Appearance ---
+syntax on                   " Enable contextual syntax highlighting
+set wrap                    " Automatically wrap lines that exceed window width
+set scrolloff=8             " Keep at least 8 vertical lines visible when scrolling
+set laststatus=2            " Always show the status bar at the window bottom
+set showcmd                 " Display incomplete macro/key commands in status bar
+
+" --- Tabs & Indentation ---
+set tabstop=4               " Render a horizontal tab (\t) as 4 spaces wide
+set softtabstop=4           " Insert 4 spaces when pressing the Tab key
+set shiftwidth=4            " Number of spaces used for each step of (auto)indent
+set expandtab               " Convert all inserted tab characters into spaces
+set autoindent              " Copy indentation from the previous line on Enter
+set smartindent             " Introduce context-dependent automatic indenting
+
+" --- Search Mechanics ---
+set hlsearch                " Highlight all matching strings for the search pattern
+set incsearch               " Show search results incrementally as you type
+set ignorecase              " Ignore uppercase/lowercase distinctions in search
+set smartcase               " Override 'ignorecase' if pattern contains capitals
+
+" --- Backup & Performance ---
+set nobackup                " Prevent writing backup files before overwriting a file
+set noswapfile              " Disable recovery swapfiles for snappier performance
+set undofile                " Persist undo history across application restarts
+set undodir=~/.vim/undodir  " Centralized directory path for your undo files
+
+" --- Custom Key Remappings ---
+let mapleader = " "         " Map the primary prefix leader key to the Spacebar
+
+nnoremap <leader>cd :Ex<CR>
